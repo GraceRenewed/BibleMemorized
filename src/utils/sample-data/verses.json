@@ -1,0 +1,182 @@
+[
+  {
+    "collection_id": "collection_001",
+    "firebaseKey": "firebase_key_001",
+    "topic": "Creation",
+    "scriptureRef": "Genesis 1:1",
+    "verse_text": "In the beginning God created the heavens and the earth.",
+    "user_uid": "user_123",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_001",
+    "firebaseKey": "firebase_key_002",
+    "topic": "Creation",
+    "scriptureRef": "Genesis 1:2",
+    "verse_text": "Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.",
+    "user_uid": "user_124",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_002",
+    "firebaseKey": "firebase_key_003",
+    "topic": "Faith",
+    "scriptureRef": "Hebrews 11:1",
+    "verse_text": "Now faith is confidence in what we hope for and assurance about what we do not see.",
+    "user_uid": "user_125",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_003",
+    "firebaseKey": "firebase_key_004",
+    "topic": "Love",
+    "scriptureRef": "1 Corinthians 13:4-7",
+    "verse_text": "Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres.",
+    "user_uid": "user_126",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_004",
+    "firebaseKey": "firebase_key_005",
+    "topic": "Strength",
+    "scriptureRef": "Isaiah 40:31",
+    "verse_text": "But those who hope in the LORD will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.",
+    "user_uid": "user_127",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_001",
+    "firebaseKey": "firebase_key_006",
+    "topic": "Creation",
+    "scriptureRef": "Genesis 1:3",
+    "verse_text": "And God said, 'Let there be light,' and there was light.",
+    "user_uid": "user_128",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_005",
+    "firebaseKey": "firebase_key_007",
+    "topic": "Hope",
+    "scriptureRef": "Romans 15:13",
+    "verse_text": "May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.",
+    "user_uid": "user_129",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_006",
+    "firebaseKey": "firebase_key_008",
+    "topic": "Comfort",
+    "scriptureRef": "2 Corinthians 1:3-4",
+    "verse_text": "Praise be to the God and Father of our Lord Jesus Christ, the Father of compassion and the God of all comfort, who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves receive from God.",
+    "user_uid": "user_130",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_007",
+    "firebaseKey": "firebase_key_009",
+    "topic": "Grace",
+    "scriptureRef": "Ephesians 2:8-9",
+    "verse_text": "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast.",
+    "user_uid": "user_131",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_008",
+    "firebaseKey": "firebase_key_010",
+    "topic": "Peace",
+    "scriptureRef": "John 14:27",
+    "verse_text": "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.",
+    "user_uid": "user_132",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_003",
+    "firebaseKey": "firebase_key_011",
+    "topic": "Faith",
+    "scriptureRef": "Romans 10:17",
+    "verse_text": "Consequently, faith comes from hearing the message, and the message is heard through the word about Christ.",
+    "user_uid": "user_133",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_004",
+    "firebaseKey": "firebase_key_012",
+    "topic": "Love",
+    "scriptureRef": "1 John 4:8",
+    "verse_text": "Whoever does not love does not know God, because God is love.",
+    "user_uid": "user_134",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_002",
+    "firebaseKey": "firebase_key_013",
+    "topic": "Faith",
+    "scriptureRef": "Matthew 17:20",
+    "verse_text": "He replied, 'Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you.'",
+    "user_uid": "user_135",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_005",
+    "firebaseKey": "firebase_key_014",
+    "topic": "Hope",
+    "scriptureRef": "Jeremiah 29:11",
+    "verse_text": "'For I know the plans I have for you,' declares the LORD, 'plans to prosper you and not to harm you, plans to give you a hope and a future.'",
+    "user_uid": "user_136",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_007",
+    "firebaseKey": "firebase_key_015",
+    "topic": "Grace",
+    "scriptureRef": "Titus 2:11-12",
+    "verse_text": "For the grace of God has appeared that offers salvation to all people. It teaches us to say 'No' to ungodliness and worldly passions, and to live self-controlled, upright and godly lives in this present age.",
+    "user_uid": "user_137",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_008",
+    "firebaseKey": "firebase_key_016",
+    "topic": "Peace",
+    "scriptureRef": "Philippians 4:6-7",
+    "verse_text": "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.",
+    "user_uid": "user_138",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_001",
+    "firebaseKey": "firebase_key_017",
+    "topic": "Creation",
+    "scriptureRef": "Genesis 1:4",
+    "verse_text": "God saw that the light was good, and he separated the light from the darkness.",
+    "user_uid": "user_139",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_002",
+    "firebaseKey": "firebase_key_018",
+    "topic": "Faith",
+    "scriptureRef": "James 2:17",
+    "verse_text": "In the same way, faith by itself, if it is not accompanied by action, is dead.",
+    "user_uid": "user_140",
+    "memorized": true
+  },
+  {
+    "collection_id": "collection_003",
+    "firebaseKey": "firebase_key_019",
+    "topic": "Love",
+    "scriptureRef": "Romans 13:10",
+    "verse_text": "Love does no harm to a neighbor. Therefore love is the fulfillment of the law.",
+    "user_uid": "user_141",
+    "memorized": false
+  },
+  {
+    "collection_id": "collection_006",
+    "firebaseKey": "firebase_key_020",
+    "topic": "Comfort",
+    "scriptureRef": "Psalm 23:4",
+    "verse_text": "Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me.",
+    "user_uid": "user_141",
+    "memorized": true
+  }
+]

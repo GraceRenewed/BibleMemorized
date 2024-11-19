@@ -1,6 +1,6 @@
 [
   {
-    "collection_id": "collection_001",
+    "collection_id": "-OC52fV5S6QEdkUal0l7",
     "firebaseKey": "firebase_key_001",
     "topic": "Creation",
     "scriptureRef": "Genesis 1:1",
@@ -9,7 +9,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_001",
+    "collection_id": "-OC52fV5S6QEdkUal0l7",
     "firebaseKey": "firebase_key_002",
     "topic": "Creation",
     "scriptureRef": "Genesis 1:2",
@@ -18,7 +18,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_002",
+    "collection_id": "-OC52fV3q_QVWOWl89Vd",
     "firebaseKey": "firebase_key_003",
     "topic": "Faith",
     "scriptureRef": "Hebrews 11:1",
@@ -27,7 +27,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_003",
+    "collection_id": "-OC52fV2ycGiPIvLWzBs",
     "firebaseKey": "firebase_key_004",
     "topic": "Love",
     "scriptureRef": "1 Corinthians 13:4-7",
@@ -36,7 +36,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_004",
+    "collection_id": "-OC52fV5S6QEdkUal0l6",
     "firebaseKey": "firebase_key_005",
     "topic": "Strength",
     "scriptureRef": "Isaiah 40:31",
@@ -45,7 +45,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_001",
+    "collection_id": "-OC52fV5S6QEdkUal0l7",
     "firebaseKey": "firebase_key_006",
     "topic": "Creation",
     "scriptureRef": "Genesis 1:3",
@@ -63,7 +63,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_006",
+    "collection_id": "-OC52fV2ycGiPIvLWzBr",
     "firebaseKey": "firebase_key_008",
     "topic": "Comfort",
     "scriptureRef": "2 Corinthians 1:3-4",
@@ -72,7 +72,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_007",
+    "collection_id": "-OC52fV1gfwIfpWEk2Z2",
     "firebaseKey": "firebase_key_009",
     "topic": "Grace",
     "scriptureRef": "Ephesians 2:8-9",
@@ -81,7 +81,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_008",
+    "collection_id": "-OC52fV0AEJzAWCtTzPB",
     "firebaseKey": "firebase_key_010",
     "topic": "Peace",
     "scriptureRef": "John 14:27",
@@ -90,7 +90,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_003",
+    "collection_id": "-OC52fV3q_QVWOWl89Vd",
     "firebaseKey": "firebase_key_011",
     "topic": "Faith",
     "scriptureRef": "Romans 10:17",
@@ -99,7 +99,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_004",
+    "collection_id": "-OC52fV2ycGiPIvLWzBs",
     "firebaseKey": "firebase_key_012",
     "topic": "Love",
     "scriptureRef": "1 John 4:8",
@@ -108,7 +108,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_002",
+    "collection_id": "-OC52fV3q_QVWOWl89Vd",
     "firebaseKey": "firebase_key_013",
     "topic": "Faith",
     "scriptureRef": "Matthew 17:20",
@@ -117,7 +117,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_005",
+    "collection_id": "-OC52fV401G5l437NzuQ",
     "firebaseKey": "firebase_key_014",
     "topic": "Hope",
     "scriptureRef": "Jeremiah 29:11",
@@ -126,7 +126,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_007",
+    "collection_id": "-OC52fV1gfwIfpWEk2Z2",
     "firebaseKey": "firebase_key_015",
     "topic": "Grace",
     "scriptureRef": "Titus 2:11-12",
@@ -135,7 +135,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_008",
+    "collection_id": "-OC52fV0AEJzAWCtTzPB",
     "firebaseKey": "firebase_key_016",
     "topic": "Peace",
     "scriptureRef": "Philippians 4:6-7",
@@ -144,7 +144,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_001",
+    "collection_id": "-OC52fV5S6QEdkUal0l7",
     "firebaseKey": "firebase_key_017",
     "topic": "Creation",
     "scriptureRef": "Genesis 1:4",
@@ -153,7 +153,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_002",
+    "collection_id": "-OC52fV3q_QVWOWl89Vd",
     "firebaseKey": "firebase_key_018",
     "topic": "Faith",
     "scriptureRef": "James 2:17",
@@ -162,7 +162,7 @@
     "memorized": true
   },
   {
-    "collection_id": "collection_003",
+    "collection_id": "-OC52fV2ycGiPIvLWzBs",
     "firebaseKey": "firebase_key_019",
     "topic": "Love",
     "scriptureRef": "Romans 13:10",
@@ -171,7 +171,7 @@
     "memorized": false
   },
   {
-    "collection_id": "collection_006",
+    "collection_id": "-OC52fV2ycGiPIvLWzBr",
     "firebaseKey": "firebase_key_020",
     "topic": "Comfort",
     "scriptureRef": "Psalm 23:4",

@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-app-router-with-firebase-auth",
+  "name": "bible-memorized",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,9 @@
     "prepare": "husky",
     "pre-commit": "next lint"
   },
+  "author": {
+    "name": "Christina Vieau"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
@@ -19,7 +22,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "firebase": "^8.2.0",
-    "next": "14.2.7",
+    "next": "^14.2.18",
     "prop-types": "^15.8.1",
     "react": "^18",
     "react-bootstrap": "^2.10.4",

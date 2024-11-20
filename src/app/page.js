@@ -1,31 +1,37 @@
-'use client';
+// 'use client';
 
- // any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
+//  // any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
 
-import { Button } from 'react-bootstrap';
-import { signOut } from '@/utils/auth'; // anything in the src dir, you can use the @ instead of relative paths
-import { useAuth } from '@/utils/context/authContext';
+// import React, { useEffect, useState } from 'react';
+// import Link from 'next/link';
+// import { Button } from 'react-bootstrap';
+//  // anything in the src dir, you can use the @ instead of relative paths
+// import { getAllUserCollections } from '@/api/collectionData';
+// import { useAuth } from '@/utils/context/authContext';
 
-function Home() {
-  const { user } = useAuth();
+// export default function CollectionsPage() {
+//   // *set state for collections
+//   const [collections, setCollections] = useState([]);
 
-  return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
-      <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
-        Sign Out
-      </Button>
-    </div>
-  );
-}
+//   const { user } = useAuth();
 
-export default Home;
+//   // *function to get all collections
+//   const getAllCollections = () => {
+//     getAllUserCollections(user.uid).then(setCollections);
+//     console.log(user.uid);
+//   };
+//   // * make api call to get collections
+//   useEffect(() => {
+//     getAllCollections();
+//   }, [user]);
+
+//   return (
+//     <div className='text-center my-4'>
+//       <Link href="/myCollections/edit/new" passHref>
+//         <Button> Add Event</Button>
+//       </Link>
+//       <div className="d-flex flex-wrap">{collections.length === 0 ? <h2>You have not created any events</h2> : collections.map((collection) =>
+//           <CollectionsCard key={collection.id} collectionsObj={collection} onUpdate={getAllCollections} />)}</div>
+//     </div>
+//   );
+// }

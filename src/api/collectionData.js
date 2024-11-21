@@ -40,4 +40,15 @@ const getAllUserCollections = (uid) =>
       .catch(reject);
   });
 
-export { getAllCollections, getAllUserCollections };
+const getSingleCollection = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/collections/${firebaseKey}`, {
+      method: 'GET',
+      headers: {},
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+export { getAllCollections, getAllUserCollections, getSingleCollection };

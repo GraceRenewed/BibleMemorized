@@ -17,21 +17,20 @@ export default function CollectionsPage() {
   const { user } = useAuth();
 
   // *function to get all collections
-  const getAllCollections = () => {
+  const getAllTheCollections = () => {
     getAllUserCollections(user.uid).then(setCollections);
-    console.log(user.uid);
   };
   // * Api call to get all collections
   useEffect(() => {
-    getAllCollections();
+    getAllTheCollections();
   }, [user]);
 
   return (
     <div className="text-center my-4">
       <Link href="/myCollections/edit/new" passHref>
-        <Button> Add Event</Button>
+        <Button> Add Collection</Button>
       </Link>
-      <div className="d-flex flex-wrap">{collections.length === 0 ? <h2>You have not created any events</h2> : collections.map((collection) => <CollectionCard key={collection.id} collectionsObj={collection} onUpdate={getAllCollections} />)}</div>
+      <div className="d-flex flex-wrap">{collections.length === 0 ? <h2>You have not created any collections</h2> : collections.map((collection) => <CollectionCard key={collections.firebaseKey} collectionsObj={collection} onUpdate={getAllTheCollections} />)}</div>
     </div>
   );
 }

@@ -3,48 +3,48 @@
     "firebaseKey": "-OC52fV5S6QEdkUal0l7",
     "topic": "Creation",
     "memorized": true,
-    "user_uid": ""
+    "uid": "rnRICNoIrDVm8zzIx4cTLogsnjM2"
   },
  "-OC52fV5S6QEdkUal0l6": {
     "firebaseKey": "-OC52fV5S6QEdkUal0l6",
     "topic": "Strength",
     "memorized": false,
-    "user_uid": ""
+    "uid": "rnRICNoIrDVm8zzIx4cTLogsnjM2"
   },
   "-OC52fV401G5l437NzuQ": {
     "firebaseKey": "-OC52fV401G5l437NzuQ",
     "topic": "Hope",
     "memorized": true,
-    "user_uid": ""
+    "uid": ""
   },
   "-OC52fV3q_QVWOWl89Vd": {
     "firebaseKey": "-OC52fV3q_QVWOWl89Vd",
     "topic": "Faith",
     "memorized": false,
-    "user_uid": ""
+    "uid": ""
   },
   "-OC52fV2ycGiPIvLWzBs": {
     "firebaseKey": "-OC52fV2ycGiPIvLWzBs",
     "topic": "Love",
     "memorized": true,
-    "user_uid": ""
+    "uid": "rnRICNoIrDVm8zzIx4cTLogsnjM2"
   },
   "-OC52fV2ycGiPIvLWzBr": {
     "firebaseKey": "-OC52fV2ycGiPIvLWzBr",
     "topic": "Comfort",
     "memorized": false,
-    "user_uid": ""
+    "uid": ""
   },
   "-OC52fV1gfwIfpWEk2Z2": {
     "firebaseKey": "-OC52fV1gfwIfpWEk2Z2",
     "topic": "Grace",
     "memorized": true,
-    "user_uid": ""
+    "uid": ""
   },
   "-OC52fV0AEJzAWCtTzPB": {
     "firebaseKey": "-OC52fV0AEJzAWCtTzPB",
     "topic": "Peace",
     "memorized": false,
-    "user_uid": ""
+    "uid": ""
   }
 }

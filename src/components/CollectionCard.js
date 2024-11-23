@@ -36,4 +36,5 @@ CollectionCard.propTypes = {
     uid: PropTypes.string,
   }).isRequired,
 };
+
 export default CollectionCard;

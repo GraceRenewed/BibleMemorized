@@ -4,7 +4,7 @@ const endpoint = clientCredentials.databaseURL;
 
 const getAllCollections = () =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections`, {
+    fetch(`${endpoint}/collections.json`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const getAllCollections = () =>
 
 const getAllUserCollections = (uid) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections/users/${uid}`, {
+    fetch(`${endpoint}/collections.json?orderBy="uid"&equalTo="${uid}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

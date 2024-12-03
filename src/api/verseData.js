@@ -49,16 +49,44 @@ const getSingleVerse = (firebaseKey) =>
       .catch(reject);
   });
 
-// const deleteVerse = (firebaseKey) =>
-//   new Promise((resolve, reject) => {
-//     fetch(`{endpoint}/verses/${firebaseKey}`, {
-//       method: 'Delete',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     })
-//     .then((data) => resolve(data))
-//     .catch(reject);
-//   });
+const deleteVerse = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/verses/${firebaseKey}.json`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
 
-export { getAllVerses, getAllUserVerses, getSingleVerse };
+const createVerse = (payload) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/verses`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+const updateVerse = (payload) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/verses/${payload.firebaseKey}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+export { getAllVerses, getAllUserVerses, getSingleVerse, deleteVerse, createVerse, updateVerse };

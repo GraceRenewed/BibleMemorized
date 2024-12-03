@@ -42,7 +42,7 @@ const getAllUserCollections = (uid) =>
 
 const getSingleCollection = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections/${firebaseKey}`, {
+    fetch(`${endpoint}/collections/${firebaseKey}.json`, {
       method: 'GET',
       headers: {},
     })
@@ -51,4 +51,30 @@ const getSingleCollection = (firebaseKey) =>
       .catch(reject);
   });
 
-export { getAllCollections, getAllUserCollections, getSingleCollection };
+const getCollectionVerses = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${firebaseKey}"`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
+
+const deleteCollection = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/collections/${firebaseKey}.json`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+export { getAllCollections, getAllUserCollections, getSingleCollection, getCollectionVerses, deleteCollection };

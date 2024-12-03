@@ -5,9 +5,16 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Card, Button } from 'react-bootstrap';
 import { useAuth } from '@/utils/context/authContext';
+import { deleteVerse } from '../api/verseData';
 
-function VerseCard({ versesObj }) {
+function VerseCard({ versesObj, onUpdate }) {
   const { user } = useAuth();
+
+  const deleteThisVerse = () => {
+    if (window.confirm(`DELETE ${versesObj.scriptureRef}`)) {
+      deleteVerse(versesObj.firebaseKey).then(() => onUpdate());
+    }
+  };
 
   const isOwner = !versesObj.firebaseKey || versesObj.uid === user.uid;
 
@@ -24,11 +31,11 @@ function VerseCard({ versesObj }) {
             </Button>
           </Link>
         )}
-        {/* {isOwner && ( 
-          <Button id="delete" variant="danger" onClick={deleteVerse}className="m-2">
+        {isOwner && (
+          <Button id="delete" variant="danger" onClick={deleteThisVerse} className="m-2">
             Delete
           </Button>
-        )} */}
+        )}
       </Card.Body>
     </Card>
   );
@@ -43,6 +50,7 @@ VerseCard.propTypes = {
     uid: PropTypes.string,
     // *memorized: PropTypes.bool,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default VerseCard;

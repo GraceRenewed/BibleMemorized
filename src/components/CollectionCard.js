@@ -31,8 +31,10 @@ function CollectionCard({ collectionsObj, onUpdate }) {
         </Link>
         <br />
         {isOwner && (
-          <Link id="edit" href="/myCollections/edit">
-            Edit
+          <Link href={`/myCollections/edit/${collectionsObj.firebaseKey}`} passHref>
+            <Button id="edit" variant="info">
+              Edit
+            </Button>
           </Link>
         )}
         {isOwner && (

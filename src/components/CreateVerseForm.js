@@ -12,7 +12,8 @@ import { createVerse, updateVerse } from '../api/verseData';
 const initialState = {
   scriptureRef: '',
   verse_text: '',
-  collection: '',
+  collection_id: '',
+  topic: '',
 };
 
 // pulls in user and object details
@@ -77,6 +78,10 @@ function CreateVerseForm({ versesObj = initialState }) {
         </Form.Select>
       </FloatingLabel>
 
+      <FloatingLabel controlId="floatingInput3" label="Topic" className="mb-3">
+        <Form.Control type="text" placeholder="Topic" name="topic" value={verseDetails.topic} onChange={handleVerseUpdate} required />
+      </FloatingLabel>
+
       <Button type="submit">{versesObj.firebaseKey ? 'Update' : 'Create'} Verse</Button>
     </Form>
   );
@@ -86,8 +91,9 @@ CreateVerseForm.propTypes = {
   versesObj: PropTypes.shape({
     scriptureRef: PropTypes.string,
     verse_text: PropTypes.string,
-    collection: PropTypes.string,
-    firebaseKey: PropTypes.number,
+    firebaseKey: PropTypes.string,
+    collection_id: PropTypes.string,
+    topic: PropTypes.string,
   }),
 };
 

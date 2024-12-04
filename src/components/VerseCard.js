@@ -11,7 +11,7 @@ function VerseCard({ versesObj, onUpdate }) {
   const { user } = useAuth();
 
   const deleteThisVerse = () => {
-    if (window.confirm(`DELETE ${versesObj.scriptureRef}`)) {
+    if (window.confirm(`Delete ${versesObj.scriptureRef}`)) {
       deleteVerse(versesObj.firebaseKey).then(() => onUpdate());
     }
   };

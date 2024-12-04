@@ -1,5 +1,6 @@
 import React from 'react';
+import CreateCollectionForm from '@/components/CreateCollectionForm';
 
-export default function newCollections() {
-  return <div>New Collections from</div>;
+export default function CreateCollection() {
+  return <CreateCollectionForm />;
 }

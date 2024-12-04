@@ -1,5 +1,6 @@
 import React from 'react';
+import VerseForm from '@/components/CreateVerseForm';
 
-export default function newVerse() {
-  return <div>Create New Verse Form</div>;
+export default function AddVerse() {
+  return <VerseForm />;
 }

@@ -77,4 +77,32 @@ const deleteCollection = (firebaseKey) =>
       .catch(reject);
   });
 
-export { getAllCollections, getAllUserCollections, getSingleCollection, getCollectionVerses, deleteCollection };
+const createCollection = (payload) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/collections.json`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+const updateCollection = (payload) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/collections/${payload.firebaseKey}.json`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
+export { getAllCollections, getAllUserCollections, getSingleCollection, getCollectionVerses, deleteCollection, createCollection, updateCollection };

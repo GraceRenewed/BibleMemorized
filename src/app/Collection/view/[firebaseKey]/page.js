@@ -24,7 +24,6 @@ export default function ViewCollection({ params }) {
     getCollectionDetails(firebaseKey).then(setCollectionDetails);
     getCollectionVerses(firebaseKey).then(setVerses);
   };
-  console.warn(getCollectionView);
 
   useEffect(() => {
     getCollectionView();

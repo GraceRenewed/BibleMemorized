@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import VerseCard from '@/components/VerseCard';
+import VerseForm from '@/components/CreateVerseForm';
+
 import { getSingleVerse } from '../../../../api/verseData';
 
 // function that allows a verse to be edited
@@ -16,7 +17,7 @@ export default function EditVerse({ params }) {
   }, [firebaseKey]);
 
   // pass object to form
-  return <VerseCard obj={editItem} />;
+  return <VerseForm obj={editItem} />;
 }
 
 EditVerse.propTypes = {

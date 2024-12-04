@@ -40,7 +40,7 @@ const getAllUserVerses = (uid) =>
 
 const getSingleVerse = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/verses/${firebaseKey}`, {
+    fetch(`${endpoint}/verses/${firebaseKey}.json`, {
       method: 'GET',
       headers: {},
     })
@@ -63,7 +63,7 @@ const deleteVerse = (firebaseKey) =>
 
 const createVerse = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/verses`, {
+    fetch(`${endpoint}/verses.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const createVerse = (payload) =>
 
 const updateVerse = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/verses/${payload.firebaseKey}`, {
+    fetch(`${endpoint}/verses/${payload.firebaseKey}.json`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

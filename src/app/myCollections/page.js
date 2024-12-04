@@ -27,7 +27,7 @@ export default function CollectionsPage() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/myCollections/edit/new" passHref>
+      <Link href="/myCollections/new" passHref>
         <Button> Add a Collection</Button>
       </Link>
       <div className="d-flex flex-wrap">{collections.length === 0 ? <h2>You have not created any collections</h2> : collections.map((collection) => <CollectionCard key={collection.firebaseKey} collectionsObj={collection} onUpdate={getAllTheCollections} />)}</div>

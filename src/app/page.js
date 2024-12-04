@@ -25,8 +25,8 @@ function Home() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/myCollections/new" passHref>
-        <Button> Add A Collection</Button>
+      <Link href="/myCollections/" passHref>
+        <Button> My Collections</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {collections.map((collection) => (

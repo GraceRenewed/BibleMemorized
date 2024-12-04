@@ -2,12 +2,20 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import Card from 'react-bootstrap/Card';
 import { useAuth } from '@/utils/context/authContext';
+import { deleteCollection } from '../api/collectionData';
 
-function CollectionCard({ collectionsObj }) {
+function CollectionCard({ collectionsObj, onUpdate }) {
   const { user } = useAuth();
+
+  const deleteThisCollection = () => {
+    if (window.confirm(`Delete ${collectionsObj.topic}`)) {
+      deleteCollection(collectionsObj.firebaseKey).then(() => onUpdate());
+    }
+  };
 
   const isOwner = !collectionsObj.firebaseKey || collectionsObj.uid === user.uid;
 
@@ -15,13 +23,24 @@ function CollectionCard({ collectionsObj }) {
     <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title>{collectionsObj.topic}</Card.Title>
-        <Link id="view" href="/collection/view">
-          View
+        <Link href={`/Collection/view/${collectionsObj.firebaseKey}`} passHref>
+          <Button id="view" variant="primary">
+            {' '}
+            View{' '}
+          </Button>
         </Link>
+        <br />
         {isOwner && (
-          <Link id="edit" href="/myCollections/edit">
-            Edit
+          <Link href={`/myCollections/edit/${collectionsObj.firebaseKey}`} passHref>
+            <Button id="edit" variant="info">
+              Edit
+            </Button>
           </Link>
+        )}
+        {isOwner && (
+          <Button id="delete" onClick={deleteThisCollection} className="m-2">
+            DELETE
+          </Button>
         )}
       </Card.Body>
     </Card>
@@ -35,6 +54,7 @@ CollectionCard.propTypes = {
     // *memorized: PropTypes.bool,
     uid: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default CollectionCard;

@@ -25,7 +25,7 @@ function VerseCard({ versesObj, onUpdate }) {
         <h4>{versesObj.topic}</h4>
         <p className="card-text bold">{versesObj.verse_text}</p>
         {isOwner && (
-          <Link id="edit" href="/myVerses/edit">
+          <Link href={`/myVerses/edit/${versesObj.firebaseKey}`} passHref>
             <Button id="edit" variant="info">
               Edit
             </Button>

@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
-import VerseCard from '@/components/VerseCard';
+import { getAllUserVerses } from '@/api/verseData';
 import { useAuth } from '@/utils/context/authContext';
-import { getAllUserVerses } from '../../api/verseData';
+import VerseCard from '@/components/VerseCard';
 
 export default function MyVerses() {
   // * Set state for verses

@@ -4,7 +4,7 @@ const endpoint = clientCredentials.databaseURL;
 
 const getAllVerses = () =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}//verses.json`, {
+    fetch(`${endpoint}/verses.json`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -13,8 +13,8 @@ const getAllVerses = () =>
       .then((response) => response.json())
       .then((data) => {
         if (data) {
-          resolve([]);
-        }
+          resolve(Object.values(data));
+        } else resolve([]);
       })
       .catch(reject);
   });

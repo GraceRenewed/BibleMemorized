@@ -77,5 +77,5 @@ Applications Features:
 - Comes with Collections and Verses to get you started
 - Ability to add your own Collections and Verses
 -Ability to edit and delete your own Collections and Verses
-- [Video of App](https://www.loom.com/share/88f24f81da9c4c4582d0d183b5d73bce?sid=f97b18ba-21a4-4b43-8e2f-66ed77373a05 "Video Link")
+- [Video of App](https://www.loom.com/share/16eea8066f6742f49dc38188501bdc5c?sid=971d4759-5891-4e83-9b9e-6237d613fd11 "Video Link") 
 

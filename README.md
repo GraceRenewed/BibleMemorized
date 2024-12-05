@@ -27,9 +27,13 @@ So that I can use what spare time do have to memorize verses and am able to have
 
 <p align="center">
 
-<img src="https://1drv.ms/i/c/455805a20153fdbb/EXjiJhwKsTVFtO-K1k0-C-4BW-GCyvt9kPqCivqVjc82Lw?e=WpHjCs" alt="My Verses Page" width="400px">
-<img src="https://1drv.ms/i/c/455805a20153fdbb/ESUCvBZtQGpCgmDnFw1qPY0BpyQ6pafQ9oGUB-SQCYWv0Q?e=YOdbA9" alt="Home Page" width="400px">
-<img src="https://1drv.ms/i/c/455805a20153fdbb/Eb247cNrBtBBoY-5XhEuFkUBy-exIOB_SBxEyJ9AzUjQTg?e=rJFvyZ" alt="View a Collection" width="400px">
+![Screenshot 2024-12-04 172329](https://github.com/user-attachments/assets/49dc978d-6c9f-44cf-862f-72c8e0ee07b0) "My Verses Page" 
+
+![Screenshot 2024-12-04 172329](https://github.com/user-attachments/assets/fd5645b4-3d84-499b-a937-fedfbd434e5a)
+"Home Page"
+
+![Screenshot 2024-12-04 203452](https://github.com/user-attachments/assets/0f561fac-0274-4983-8b30-822e93dd2b3b)
+"View a Collection"
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
@@ -60,23 +64,12 @@ Here you list all prerequisites necessary for running your project. For example:
 - [NodeJS](https://github.com/)
 - [Git 2](https://github.com)
 
-<h2 id="colab">🤝 Collaborators</h2>
+<h2 > Contributors </h2>
 
-<p>Special thank you for all people that contributed for this project.</p>
-<table>
-<tr>
-
-<td align="center">
-<a href="https://github.com/GraceRenewed">
-<img src="https://1drv.ms/i/c/455805a20153fdbb/EbZ2H3SLphdGi5a71OAplbUBxSj0RY6bBv8FsXaEIZd1cg?e=kouXM0" width="100px;" alt="Christina Vieau Profile Picture"/><br>
-<sub>
-<b>Christina Vieau</b>
-</sub>
-</a>
-</td>
-
-</tr>
-</table>
+<p>
+Christina Vieau </br>
+https://github.com/GraceRenewed
+</p>
 
 <h3>Documentations that might help</h3>
 

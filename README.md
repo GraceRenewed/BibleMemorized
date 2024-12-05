@@ -1,61 +1,88 @@
-# NextJS with Firebase Auth App Router Template
 
-[See Live Demo of this Template](https://drt-next-js-template-app-router.netlify.app/)
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+<h1 align="center" style="font-weight: bold;">Bible Memorized</h1>
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+<p align="center">
+<a href="#tech">Technologies</a>
+<a href="#started">Getting Started</a>
+<a href="#colab">Collaborators</a>
+ 
+</p>
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. Run `npx eslint . --ext .js,.jsx`
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+<p align="center">Bible Memorized is an app that allows users to keep track of Bible Verses they would like to memorize or reference. The user is able to store Bible Verses into Collection categories for easy reference.
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://github.com/user-attachments/assets/deae25f0-01d5-44b4-be60-7297b0f6f0ef">
+User Example:
+As a parent who is always on the go I have a hard time finding quiet time at home to study and memorize verses.
+I want an application that I can take on the go and use while waiting in carpool lines, waiting in doctor offices, or during children’s soccer practice.
+So that I can use what spare time do have to memorize verses and am able to have access to my personal list.
+</p>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
+<p align="center">
+<a href="https://bible-memorized.netlify.app/">📱 Visit Bible Memorized</a>
+</p>
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
+<h2 id="layout">🎨 Layout</h2>
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+<p align="center">
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+<img src="https://1drv.ms/i/c/455805a20153fdbb/EXjiJhwKsTVFtO-K1k0-C-4BW-GCyvt9kPqCivqVjc82Lw?e=WpHjCs" alt="My Verses Page" width="400px">
+<img src="https://1drv.ms/i/c/455805a20153fdbb/ESUCvBZtQGpCgmDnFw1qPY0BpyQ6pafQ9oGUB-SQCYWv0Q?e=YOdbA9" alt="Home Page" width="400px">
+<img src="https://1drv.ms/i/c/455805a20153fdbb/Eb247cNrBtBBoY-5XhEuFkUBy-exIOB_SBxEyJ9AzUjQTg?e=rJFvyZ" alt="View a Collection" width="400px">
+</p>
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there if you did not add them when you were deploying your site
+<h2 id="technologies">💻 Technologies</h2>
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+- Firebase
+- react/Next.js
+- Postman
+- GitHub
+- Bootstrap
+- JavaScript
+- draw.io
+- dbDiagram.io
+- Mockaroo
+- Slidesgo
+- Loom
+- Netlify
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<h2 id="started">🚀 Getting started</h2>
+
+[Db diagram](https://dbdiagram.io/d/Bible-Memorized-6732a453e9daa85aca185bdf "Db diagram Link")
+[Wireframe](https://drive.google.com/file/d/16XTzhKxA-fKeuRPFvLIWP8uqVz4kI1pA/view?usp=sharing "Wireframe Link")
+[Project Board](https://github.com/users/GraceRenewed/projects/2 "Project Board")
+
+<h3>Prerequisites</h3>
+
+Here you list all prerequisites necessary for running your project. For example:
+
+- [NodeJS](https://github.com/)
+- [Git 2](https://github.com)
+
+<h2 id="colab">🤝 Collaborators</h2>
+
+<p>Special thank you for all people that contributed for this project.</p>
+<table>
+<tr>
+
+<td align="center">
+<a href="https://github.com/GraceRenewed">
+<img src="https://1drv.ms/i/c/455805a20153fdbb/EbZ2H3SLphdGi5a71OAplbUBxSj0RY6bBv8FsXaEIZd1cg?e=kouXM0" width="100px;" alt="Christina Vieau Profile Picture"/><br>
+<sub>
+<b>Christina Vieau</b>
+</sub>
+</a>
+</td>
+
+</tr>
+</table>
+
+<h3>Documentations that might help</h3>
+
+Applications Features:
+- Comes with Collections and Verses to get you started
+- Ability to add your own Collections and Verses
+-Ability to edit and delete your own Collections and Verses
+- [Video of App](https://www.loom.com/share/88f24f81da9c4c4582d0d183b5d73bce?sid=f97b18ba-21a4-4b43-8e2f-66ed77373a05 "Video Link")
+

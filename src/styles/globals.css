@@ -1,4 +1,26 @@
 body {
-  background: black;
-  color: white;
+  background: rgb(41, 41, 102);
+  font-family: cursive;
+
+}
+
+.navbar {
+  background: rgb (92, 92, 153)
+}
+
+.logo {
+  height: 20px;
+  width: auto;
+}
+
+.card {
+  background: rgb(204, 204, 255);
+  color: rgb(41, 41, 102);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn {
+  background: rgb(92, 92, 153);
+  color: rgb(163, 163, 204);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

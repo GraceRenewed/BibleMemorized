@@ -21,9 +21,14 @@ function VerseCard({ versesObj, onUpdate }) {
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
+        {/* Scripture Reference */}
         <Card.Title>{versesObj.scriptureRef}</Card.Title>
-        <h4>{versesObj.topic}</h4>
+        {/* Topic */}
+        <h6>{versesObj.topic}</h6>
+
+        {/* Scripture */}
         <p className="card-text bold">{versesObj.verse_text}</p>
+
         {isOwner && (
           <Link href={`/myVerses/edit/${versesObj.firebaseKey}`} passHref>
             <Button id="edit" variant="info">
@@ -31,10 +36,23 @@ function VerseCard({ versesObj, onUpdate }) {
             </Button>
           </Link>
         )}
+
         {isOwner && (
           <Button id="delete" variant="danger" onClick={deleteThisVerse} className="m-2">
             Delete
           </Button>
+        )}
+
+        {/* Memorized ? */}
+        {isOwner && (
+          <p className="cart-text bold">
+            {versesObj.memorized && (
+              <span>
+                Memorized
+                <br />
+              </span>
+            )}
+          </p>
         )}
       </Card.Body>
     </Card>
@@ -48,7 +66,7 @@ VerseCard.propTypes = {
     scriptureRef: PropTypes.string,
     verse_text: PropTypes.string,
     uid: PropTypes.string,
-    // *memorized: PropTypes.bool,
+    memorized: PropTypes.bool,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

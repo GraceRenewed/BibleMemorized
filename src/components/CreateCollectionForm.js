@@ -10,6 +10,7 @@ import { createCollection, updateCollection } from '../api/collectionData';
 // clears out the form after the user submits the form
 const initialState = {
   topic: '',
+  memorized: false,
 };
 
 // pulls in user and object details
@@ -55,6 +56,22 @@ function CreateCollectionForm({ obj = initialState }) {
         <Form.Control type="text" placeholder="topic" name="topic" value={collectionDetails.topic} onChange={handleCollectionUpdate} required />
       </FloatingLabel>
 
+      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="memorized"
+        name="memorized"
+        label="Memorized?"
+        checked={collectionDetails.memorized}
+        onChange={(e) => {
+          setCollectionDetails((prevState) => ({
+            ...prevState,
+            memorized: e.target.checked,
+          }));
+        }}
+      />
+
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Collection</Button>
     </Form>
   );
@@ -64,6 +81,7 @@ CreateCollectionForm.propTypes = {
   obj: PropTypes.shape({
     topic: PropTypes.string,
     firebaseKey: PropTypes.string,
+    memorized: PropTypes.bool,
   }),
 };
 

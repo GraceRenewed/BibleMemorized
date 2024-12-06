@@ -43,6 +43,18 @@ function CollectionCard({ collectionsObj, onUpdate }) {
           </Button>
         )}
       </Card.Body>
+
+      {/* Memorized ? */}
+      {isOwner && (
+        <p className="cart-text bold">
+          {collectionsObj.memorized && (
+            <span>
+              Memorized
+              <br />
+            </span>
+          )}
+        </p>
+      )}
     </Card>
   );
 }
@@ -51,7 +63,7 @@ CollectionCard.propTypes = {
   collectionsObj: PropTypes.shape({
     firebaseKey: PropTypes.string,
     topic: PropTypes.string,
-    // *memorized: PropTypes.bool,
+    memorized: PropTypes.bool,
     uid: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

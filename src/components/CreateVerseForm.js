@@ -14,6 +14,7 @@ const initialState = {
   verse_text: '',
   collection_id: '',
   topic: '',
+  memorized: false,
 };
 
 // pulls in user and object details
@@ -58,10 +59,12 @@ function CreateVerseForm({ versesObj = initialState }) {
     <Form onSubmit={handleSubmit} className="text-black">
       <h2 className="text-white mt-5">{versesObj.firebaseKey ? 'Update' : 'Create'} Verse</h2>
 
+      {/* Scripture Reference input */}
       <FloatingLabel controlId="floatingInput1" label="Scripture Reference" className="mb-3">
         <Form.Control type="text" placeholder="Scripture Reference" name="scriptureRef" value={verseDetails.scriptureRef} onChange={handleVerseUpdate} required />
       </FloatingLabel>
 
+      {/* Scripture input */}
       <FloatingLabel controlId="floatingInput3" label="Scripture" className="mb-3">
         <Form.Control type="text" placeholder="Scripture" name="verse_text" value={verseDetails.verse_text} onChange={handleVerseUpdate} required />
       </FloatingLabel>
@@ -78,9 +81,26 @@ function CreateVerseForm({ versesObj = initialState }) {
         </Form.Select>
       </FloatingLabel>
 
+      {/* Topic input */}
       <FloatingLabel controlId="floatingInput3" label="Topic" className="mb-3">
         <Form.Control type="text" placeholder="Topic" name="topic" value={verseDetails.topic} onChange={handleVerseUpdate} required />
       </FloatingLabel>
+
+      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="memorized"
+        name="memorized"
+        label="Memorized?"
+        checked={verseDetails.memorized}
+        onChange={(e) => {
+          setVerseDetails((prevState) => ({
+            ...prevState,
+            memorized: e.target.checked,
+          }));
+        }}
+      />
 
       <Button type="submit">{versesObj.firebaseKey ? 'Update' : 'Create'} Verse</Button>
     </Form>
@@ -94,6 +114,7 @@ CreateVerseForm.propTypes = {
     firebaseKey: PropTypes.string,
     collection_id: PropTypes.string,
     topic: PropTypes.string,
+    memorized: PropTypes.bool,
   }),
 };
 

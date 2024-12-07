@@ -11,6 +11,7 @@ import { createCollection, updateCollection } from '../api/collectionData';
 const initialState = {
   topic: '',
   memorized: false,
+  firebaseKey: '',
 };
 
 // pulls in user and object details
@@ -42,8 +43,11 @@ function CreateCollectionForm({ obj = initialState }) {
     if (obj.firebaseKey) {
       updateCollection(payload).then(() => router.push(`/myCollections/`));
     } else {
-      createCollection(payload).then(() => {
-        router.push(`/myCollections/`);
+      createCollection(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateCollection(patchPayload).then(() => {
+          router.push(`/myCollections/`);
+        });
       });
     }
   };

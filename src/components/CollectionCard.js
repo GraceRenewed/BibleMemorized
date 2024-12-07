@@ -23,13 +23,13 @@ function CollectionCard({ collectionsObj, onUpdate }) {
     <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title>{collectionsObj.topic}</Card.Title>
+        <br />
         <Link href={`/Collection/view/${collectionsObj.firebaseKey}`} passHref>
           <Button id="view" variant="primary">
             {' '}
             View{' '}
           </Button>
         </Link>
-        <br />
         {isOwner && (
           <Link href={`/myCollections/edit/${collectionsObj.firebaseKey}`} passHref>
             <Button id="edit" variant="info">

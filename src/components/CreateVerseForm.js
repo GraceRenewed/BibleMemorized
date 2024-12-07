@@ -49,8 +49,11 @@ function CreateVerseForm({ versesObj = initialState }) {
     if (versesObj.firebaseKey) {
       updateVerse(payload).then(() => router.push(`/myVerses/`));
     } else {
-      createVerse(payload).then(() => {
-        router.push(`/myVerses/`);
+      createVerse(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateVerse(patchPayload).then(() => {
+          router.push(`/myVerses`);
+        });
       });
     }
   };

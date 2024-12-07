@@ -6,7 +6,7 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect id="navBar">
       <Container>
         <Link passHref href="/" className="navbar-brand">
           Bible Memorized

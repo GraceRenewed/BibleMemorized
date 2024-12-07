@@ -1,12 +1,21 @@
 body {
-  background: rgb(41, 41, 102);
+  background: rgb(180, 197, 228);
   font-family: cursive;
 
 }
 
-.navbar {
-  background: rgb (92, 92, 153)
+#navBar {
+  background: rgb(9, 12, 155)
 }
+
+.navbar-brand {
+  color: rgb(251, 255, 241);
+  }
+
+.nav-link {
+  color: rgb(180, 197, 228);
+}
+
 
 .logo {
   height: 20px;
@@ -14,13 +23,18 @@ body {
 }
 
 .card {
-  background: rgb(204, 204, 255);
-  color: rgb(41, 41, 102);
+  background: rgb(251, 255, 241);
+  color: rgb(9, 12, 155);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .btn {
-  background: rgb(92, 92, 153);
-  color: rgb(163, 163, 204);
+  background: rgb(180, 197, 228);
+  color: rgb(9, 12, 155);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 16 px;
+}
+
+.btn-active {
+  background: rgb(9, 12,155);
 }

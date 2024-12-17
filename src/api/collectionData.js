@@ -23,7 +23,7 @@ const getAllCollections = () =>
 
 const getAllUserCollections = (uid) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections.json?orderBy="uid"&equalTo="${uid}"`, {
+    fetch(`${endpoint}/userCollections.json?orderBy="uid"&equalTo="${uid}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -64,9 +64,9 @@ const getCollectionVerses = (firebaseKey) =>
       .catch(reject);
   });
 
-const deleteCollection = (firebaseKey) =>
+const deleteCollection = (uid, firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections/${firebaseKey}.json`, {
+    fetch(`${endpoint}/userCollections/${uid}/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const deleteCollection = (firebaseKey) =>
 
 const createCollection = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections.json`, {
+    fetch(`${endpoint}/userCollections.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const createCollection = (payload) =>
 
 const updateCollection = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections/${payload.firebaseKey}.json`, {
+    fetch(`${endpoint}/userCollections/${payload.firebaseKey}.json`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -104,14 +104,14 @@ const updateCollection = (payload) =>
       .catch(reject);
   });
 
-const addCollection = (payload) =>
+const addCollection = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/collections/${payload.firebaseKey}.json`, {
+    fetch(`${endpoint}/userCollections.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(firebaseKey),
     })
       .then((response) => response.json())
       .then((data) => resolve(data))

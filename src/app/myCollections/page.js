@@ -10,16 +10,17 @@ import { getAllUserCollections } from '@/api/collectionData';
 import { useAuth } from '@/utils/context/authContext';
 import MyCollectionsCard from '../../components/MyCollectionsCard';
 
-export default function CollectionsPage() {
+export default function MyCollectionsPage() {
   // * Set state for collections
-  const [collections, setCollections] = useState([]);
+  const [userCollections, setUserCollections] = useState([]);
   // * Get user ID using useAuth hook
   const { user } = useAuth();
 
   // *function to get all collections
   const getAllTheCollections = () => {
-    getAllUserCollections(user.uid).then(setCollections);
+    getAllUserCollections(user.uid).then(setUserCollections);
   };
+
   // * Api call to get all collections
   useEffect(() => {
     getAllTheCollections();
@@ -30,7 +31,7 @@ export default function CollectionsPage() {
       <Link href="/myCollections/new" passHref>
         <Button> Make a Collection</Button>
       </Link>
-      <div className="d-flex flex-wrap">{collections.length === 0 ? <h2>You have not created any collections</h2> : collections.map((collection) => <MyCollectionsCard key={collection.firebaseKey} collectionsObj={collection} onUpdate={getAllTheCollections} />)}</div>
+      <div className="d-flex flex-wrap">{userCollections.length === 0 ? <h2>You have not created any collections</h2> : userCollections.map((collection) => <MyCollectionsCard key={collection.firebaseKey} collectionsObj={collection} onUpdate={getAllTheCollections} />)}</div>
     </div>
   );
 }

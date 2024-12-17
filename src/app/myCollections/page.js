@@ -8,18 +8,19 @@ import { Button } from 'react-bootstrap';
 // anything in the src dir, you can use the @ instead of relative paths
 import { getAllUserCollections } from '@/api/collectionData';
 import { useAuth } from '@/utils/context/authContext';
-import CollectionCard from '@/components/CollectionCard';
+import MyCollectionsCard from '../../components/MyCollectionsCard';
 
-export default function CollectionsPage() {
+export default function MyCollectionsPage() {
   // * Set state for collections
-  const [collections, setCollections] = useState([]);
+  const [userCollections, setUserCollections] = useState([]);
   // * Get user ID using useAuth hook
   const { user } = useAuth();
 
   // *function to get all collections
   const getAllTheCollections = () => {
-    getAllUserCollections(user.uid).then(setCollections);
+    getAllUserCollections(user.uid).then(setUserCollections);
   };
+
   // * Api call to get all collections
   useEffect(() => {
     getAllTheCollections();
@@ -28,9 +29,9 @@ export default function CollectionsPage() {
   return (
     <div className="text-center my-4">
       <Link href="/myCollections/new" passHref>
-        <Button> Add a Collection</Button>
+        <Button> Make a Collection</Button>
       </Link>
-      <div className="d-flex flex-wrap">{collections.length === 0 ? <h2>You have not created any collections</h2> : collections.map((collection) => <CollectionCard key={collection.firebaseKey} collectionsObj={collection} onUpdate={getAllTheCollections} />)}</div>
+      <div className="d-flex flex-wrap">{userCollections.length === 0 ? <h2>You have not created any collections</h2> : userCollections.map((collection) => <MyCollectionsCard key={collection.firebaseKey} collectionsObj={collection} onUpdate={getAllTheCollections} />)}</div>
     </div>
   );
 }

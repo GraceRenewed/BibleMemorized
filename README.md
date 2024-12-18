@@ -68,7 +68,11 @@ Here you list all prerequisites necessary for running your project. For example:
 
 <p>
 Christina Vieau </br>
-https://github.com/GraceRenewed
+https://github.com/GraceRenewed </br>
+And Classmates of cohort 28 and swe</br>
+Thank you for all your help with debugging and rubber ducking
+especially
+Max Jones, Toren DeRamus, Siena Foster, Fletcher Moore, and Jesse French!
 </p>
 
 <h3>Documentations that might help</h3>

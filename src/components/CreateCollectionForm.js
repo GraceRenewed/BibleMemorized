@@ -15,15 +15,15 @@ const initialState = {
 };
 
 // pulls in user and object details
-function CreateCollectionForm({ obj = initialState }) {
+function CreateCollectionForm({ collectionsObj = initialState }) {
   const { user } = useAuth();
   const [collectionDetails, setCollectionDetails] = useState(initialState);
   const router = useRouter();
 
   // brings collection data in for editing the collection
   useEffect(() => {
-    if (obj.firebaseKey) setCollectionDetails(obj);
-  }, [obj]);
+    if (collectionsObj.firebaseKey) setCollectionDetails(collectionsObj);
+  }, [collectionsObj]);
 
   // Grants access to the collection object, deconstructing the name and the value of the form input
   const handleCollectionUpdate = (e) => {
@@ -40,7 +40,7 @@ function CreateCollectionForm({ obj = initialState }) {
     e.preventDefault();
     const payload = { ...collectionDetails, uid: user.uid };
     // if the object already has an id then the updateCollection function is called the router pushes the updated information to the collections page-else it creates a new collection
-    if (obj.firebaseKey) {
+    if (collectionsObj.firebaseKey) {
       updateCollection(payload).then(() => router.push(`/myCollections/`));
     } else {
       createCollection(payload).then(({ name }) => {
@@ -54,7 +54,7 @@ function CreateCollectionForm({ obj = initialState }) {
 
   return (
     <Form onSubmit={handleSubmit} className="text-black">
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Collection</h2>
+      <h2 className="text-white mt-5">{collectionsObj.firebaseKey ? 'Update' : 'Create'} Collection</h2>
 
       <FloatingLabel controlId="floatingInput1" label="Collection Name" className="mb-3">
         <Form.Control type="text" placeholder="topic" name="topic" value={collectionDetails.topic} onChange={handleCollectionUpdate} required />
@@ -76,13 +76,13 @@ function CreateCollectionForm({ obj = initialState }) {
         }}
       />
 
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Collection</Button>
+      <Button type="submit">{collectionsObj.firebaseKey ? 'Update' : 'Create'} Collection</Button>
     </Form>
   );
 }
 
 CreateCollectionForm.propTypes = {
-  obj: PropTypes.shape({
+  collectionsObj: PropTypes.shape({
     topic: PropTypes.string,
     firebaseKey: PropTypes.string,
     memorized: PropTypes.bool,

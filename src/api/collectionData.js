@@ -23,7 +23,7 @@ const getAllCollections = () =>
 
 const getAllUserCollections = (uid) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/userCollections.json?orderBy="uid"&equalTo="${uid}"`, {
+    fetch(`${endpoint}/collections.json?orderBy="uid"&equalTo="${uid}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -51,9 +51,33 @@ const getSingleCollection = (firebaseKey) =>
       .catch(reject);
   });
 
+const getSingleUserCollection = (uid) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/collections/${uid}.json`, {
+      method: 'GET',
+      headers: {},
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
 const getCollectionVerses = (firebaseKey) =>
   new Promise((resolve, reject) => {
     fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${firebaseKey}"`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
+
+const getUserCollectionVerses = (uid) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${uid}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +102,7 @@ const deleteCollection = (uid, firebaseKey) =>
 
 const createCollection = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/userCollections.json`, {
+    fetch(`${endpoint}/collections.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,7 +116,7 @@ const createCollection = (payload) =>
 
 const updateCollection = (payload) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/userCollections/${payload.firebaseKey}.json`, {
+    fetch(`${endpoint}/Collections/${payload.firebaseKey}.json`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -104,9 +128,10 @@ const updateCollection = (payload) =>
       .catch(reject);
   });
 
+// adds public collection to My Collection Page
 const addCollection = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/userCollections.json`, {
+    fetch(`${endpoint}/collections.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -118,4 +143,4 @@ const addCollection = (firebaseKey) =>
       .catch(reject);
   });
 
-export { getAllCollections, getAllUserCollections, getSingleCollection, getCollectionVerses, deleteCollection, createCollection, updateCollection, addCollection };
+export { getAllCollections, getAllUserCollections, getUserCollectionVerses, getSingleCollection, getSingleUserCollection, getCollectionVerses, deleteCollection, createCollection, updateCollection, addCollection };

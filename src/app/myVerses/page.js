@@ -9,19 +9,19 @@ import VerseCard from '@/components/VerseCard';
 
 export default function MyVerses() {
   // * Set state for verses
-  const [verses, setVerses] = useState([]);
+  const [verses, setUserVerses] = useState([]);
   // *Get user ID using useAuth hook
   const { user } = useAuth();
 
   // *Function to get all verses
   const getAllTheVerses = () => {
-    getAllUserVerses(user.uid).then(setVerses);
+    getAllUserVerses(user.uid).then(setUserVerses);
   };
 
   // Api call to get all verses
   useEffect(() => {
     getAllTheVerses();
-  }, [user]);
+  }, []);
 
   return (
     <div className="text-center my-4">

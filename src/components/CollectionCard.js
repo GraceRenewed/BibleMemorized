@@ -11,6 +11,7 @@ import { addCollection } from '../api/collectionData';
 
 function CollectionCard({ collectionsObj }) {
   const { user } = useAuth();
+
   const [collectionDetails, setCollectionDetails] = useState();
   const router = useRouter();
 
@@ -51,7 +52,9 @@ CollectionCard.propTypes = {
     topic: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
-  // onUpdate: PropTypes.func.isRequired,
+  collections: PropTypes.shape({
+    firebaseKey: PropTypes.string,
+  }),
 };
 
 export default CollectionCard;

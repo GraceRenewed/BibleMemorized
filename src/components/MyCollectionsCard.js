@@ -13,7 +13,8 @@ function MyCollectionsCard({ collectionsObj, onUpdate }) {
 
   const deleteThisCollection = () => {
     if (window.confirm(`Delete ${collectionsObj.topic}`)) {
-      deleteCollection(collectionsObj.uid, collectionsObj.firebaseKey).then(() => onUpdate());
+      console.log(collectionsObj);
+      deleteCollection(collectionsObj.firebaseKey).then(() => onUpdate());
     }
   };
 

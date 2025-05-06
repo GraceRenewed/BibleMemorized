@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import VerseCard from '@/components/VerseCard';
 import getCollectionDetails from '@/api/mergedData';
 import { getCollectionVerses } from '@/api/collectionData';
-// import { useAuth } from '@/utils/context/authContext';
+import { useAuth } from '@/utils/context/authContext';
 // *import { createMemorized }
 
 // React Component
@@ -17,17 +17,17 @@ export default function ViewCollection({ params }) {
 
   // extracts firebaseKey from the params object
   const { firebaseKey } = params;
-
-  // hook that provides user related information, extracts user from the object
+  const { user } = useAuth();
 
   const getCollectionView = () => {
     getCollectionDetails(firebaseKey).then(setCollectionDetails);
-    getCollectionVerses(firebaseKey).then(setVerses);
+    getCollectionVerses(user.uid).then(setVerses);
   };
 
+  // hook that provides user related information, extracts user from the object
   useEffect(() => {
     getCollectionView();
-  }, []);
+  }, [user]);
 
   return (
     <div className="mt-5 d-flex flex-wrap">

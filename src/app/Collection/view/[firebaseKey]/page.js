@@ -12,7 +12,7 @@ import { useAuth } from '@/utils/context/authContext';
 // React Component
 export default function ViewCollection({ params }) {
   // Component State collDet holds details of state/setCollDet updates state, default empty object
-  const [collectionDetails, setCollectionDetails] = useState({});
+  const [collectionDetails, setCollectionDetails] = useState([{}]);
   const [verses, setVerses] = useState([{}]);
 
   // extracts firebaseKey from the params object

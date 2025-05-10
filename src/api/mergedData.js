@@ -1,5 +1,4 @@
 import { getUserCollectionVerses, getSingleCollection } from './collectionData';
-// import { getSingleVerse } from "./verseData";
 
 // Get data for viewCollection from firebase
 const getCollectionDetails = (firebaseKey, uid) =>
@@ -11,11 +10,5 @@ const getCollectionDetails = (firebaseKey, uid) =>
       })
       .catch((error) => reject(error));
   });
-
-// const getUserCollectionVerses = (uid) =>
-//   new Promise((resolve, reject) => {
-//     // 2 fetches get user collection and verses
-//     Promise.all([get])
-//   })
 
 export default getCollectionDetails;

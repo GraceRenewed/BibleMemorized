@@ -13,7 +13,7 @@ import { useAuth } from '@/utils/context/authContext';
 export default function ViewCollection({ params }) {
   // Component State collDet holds details of state/setCollDet updates state, default empty object
   const [collectionDetails, setCollectionDetails] = useState([{}]);
-  const [verses, setVerses] = useState([{}]);
+  const [verses, setVerses] = useState([]);
 
   // extracts firebaseKey from the params object
   const { firebaseKey } = params;
@@ -27,7 +27,7 @@ export default function ViewCollection({ params }) {
   // hook that provides user related information, extracts user from the object
   useEffect(() => {
     getCollectionView();
-  }, [user]);
+  }, [user.uid]);
 
   return (
     <div className="mt-5 d-flex flex-wrap">

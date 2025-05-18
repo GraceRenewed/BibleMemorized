@@ -20,6 +20,8 @@ function CollectionCard({ collectionsObj }) {
   }, [collectionsObj]);
 
   const addThisCollection = () => {
+    const addedUserCollection = { ...collectionsObj };
+    addedUserCollection.firebaseKey = null;
     const payload = { ...collectionDetails, uid: user.uid };
 
     if (collectionsObj.firebaseKey) {

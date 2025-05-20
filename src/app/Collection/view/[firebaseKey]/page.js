@@ -14,27 +14,32 @@ export default function ViewCollection({ params }) {
   // Component State collDet holds details of state/setCollDet updates state, default empty object
   const [collectionDetails, setCollectionDetails] = useState([{}]);
   const [verses, setVerses] = useState([]);
-
+  const [filteredVerses, setFilteredVerses] = useState([]);
   // extracts firebaseKey from the params object
   const { firebaseKey } = params;
   const { user } = useAuth();
 
   const getCollectionView = () => {
     getCollectionDetails(firebaseKey).then(setCollectionDetails);
-    getCollectionVerses(user.uid).then(setVerses);
+    getCollectionVerses(firebaseKey).then(setVerses);
   };
 
   // hook that provides user related information, extracts user from the object
   useEffect(() => {
     getCollectionView();
-  }, [user.uid]);
+  }, []);
+
+  useEffect(() => {
+    const filtered = verses.filter((verse) => verse.uid === user.uid || verse.uid === '');
+    setFilteredVerses(filtered);
+  }, [verses, user.uid]);
 
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="text-white ms-5 details">
         <h5>{collectionDetails.topic}</h5>
         <h6>
-          {verses.map((verse) => (
+          {filteredVerses.map((verse) => (
             <VerseCard key={verse.firebaseKey} versesObj={verse} onUpdate={getCollectionView} />
           ))}
         </h6>

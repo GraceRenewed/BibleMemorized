@@ -23,6 +23,12 @@ module.exports = {
         extensions: ['.js', '.jsx'],
       },
     ],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['**/*.test.js', '**/*.spec.js', '**/*.config.js', '**/.eslintrc.js'],
+      },
+    ],
     'react/jsx-one-expression-per-line': [0],
     // Set to 'error' so console logs are visible during development
     'no-console': [
@@ -84,6 +90,7 @@ module.exports = {
       },
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['src'],
       },
     },
   },

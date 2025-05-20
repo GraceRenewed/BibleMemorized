@@ -75,9 +75,9 @@ const getCollectionVerses = (firebaseKey) =>
       .catch(reject);
   });
 
-const getUserCollectionVerses = (uid) =>
+const getUserCollectionVerses = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${uid}"`, {
+    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${firebaseKey}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -88,9 +88,9 @@ const getUserCollectionVerses = (uid) =>
       .catch(reject);
   });
 
-const deleteCollection = (uid, firebaseKey) =>
+const deleteCollection = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/userCollections/${uid}/${firebaseKey}.json`, {
+    fetch(`${endpoint}/userCollections/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

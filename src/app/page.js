@@ -27,7 +27,7 @@ function Home() {
   useEffect(() => {
     const filtered = collections.filter((collection) => collection.uid !== user.uid);
     setFilteredCollections(filtered);
-  }, [collections]);
+  }, [collections, user.uid]);
 
   return (
     <div className="text-center my-4">

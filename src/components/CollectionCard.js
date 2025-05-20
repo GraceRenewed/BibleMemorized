@@ -7,10 +7,12 @@ import Link from 'next/link';
 import Card from 'react-bootstrap/Card';
 import { useAuth } from '@/utils/context/authContext';
 import { useRouter } from 'next/navigation';
+import _ from 'lodash';
 import { addCollection } from '../api/collectionData';
 
 function CollectionCard({ collectionsObj }) {
   const { user } = useAuth();
+
   const [collectionDetails, setCollectionDetails] = useState();
   const router = useRouter();
 
@@ -19,6 +21,9 @@ function CollectionCard({ collectionsObj }) {
   }, [collectionsObj]);
 
   const addThisCollection = () => {
+    const addedUserCollection = _.cloneDeep(collectionsObj);
+    addedUserCollection.firebaseKey = null;
+
     const payload = { ...collectionDetails, uid: user.uid };
 
     if (collectionsObj.firebaseKey) {
@@ -51,7 +56,9 @@ CollectionCard.propTypes = {
     topic: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
-  // onUpdate: PropTypes.func.isRequired,
+  collections: PropTypes.shape({
+    firebaseKey: PropTypes.string,
+  }),
 };
 
 export default CollectionCard;

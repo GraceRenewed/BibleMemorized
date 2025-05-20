@@ -10,6 +10,7 @@ body {
 
 .navbar-brand {
   color: rgb(251, 255, 241);
+  border-radius: 16px;
   }
 
 .nav-link {

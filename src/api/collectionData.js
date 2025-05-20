@@ -51,6 +51,17 @@ const getSingleCollection = (firebaseKey) =>
       .catch(reject);
   });
 
+const getSingleUserCollection = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/userCollections/${firebaseKey}.json`, {
+      method: 'GET',
+      headers: {},
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch(reject);
+  });
+
 const getCollectionVerses = (firebaseKey) =>
   new Promise((resolve, reject) => {
     fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${firebaseKey}"`, {
@@ -64,9 +75,22 @@ const getCollectionVerses = (firebaseKey) =>
       .catch(reject);
   });
 
-const deleteCollection = (uid, firebaseKey) =>
+const getUserCollectionVerses = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/userCollections/${uid}/${firebaseKey}.json`, {
+    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${firebaseKey}"`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
+
+const deleteCollection = (firebaseKey) =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/userCollections/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -104,6 +128,7 @@ const updateCollection = (payload) =>
       .catch(reject);
   });
 
+// adds public collection to My Collection Page
 const addCollection = (firebaseKey) =>
   new Promise((resolve, reject) => {
     fetch(`${endpoint}/userCollections.json`, {
@@ -118,4 +143,4 @@ const addCollection = (firebaseKey) =>
       .catch(reject);
   });
 
-export { getAllCollections, getAllUserCollections, getSingleCollection, getCollectionVerses, deleteCollection, createCollection, updateCollection, addCollection };
+export { getAllCollections, getAllUserCollections, getUserCollectionVerses, getSingleCollection, getSingleUserCollection, getCollectionVerses, deleteCollection, createCollection, updateCollection, addCollection };

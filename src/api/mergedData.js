@@ -1,11 +1,10 @@
-import { getCollectionVerses, getSingleCollection } from './collectionData';
-// import { getSingleVerse } from "./verseData";
+import { getUserCollectionVerses, getSingleCollection } from './collectionData';
 
-// Get data for viewCollection
+// Get data for viewCollection from firebase
 const getCollectionDetails = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    // Get single collection
-    Promise.all([getSingleCollection(firebaseKey), getCollectionVerses(firebaseKey)])
+    // Get single collection and verses/ 2 fetches
+    Promise.all([getSingleCollection(firebaseKey), getUserCollectionVerses(firebaseKey)])
       .then(([collectionObj, collectionVersesArray]) => {
         resolve({ ...collectionObj, verses: collectionVersesArray });
       })

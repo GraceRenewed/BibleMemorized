@@ -23,8 +23,6 @@ function VerseCard({ versesObj, onUpdate }) {
       <Card.Body>
         {/* Scripture Reference */}
         <Card.Title>{versesObj.scriptureRef}</Card.Title>
-        {/* Topic */}
-        <h6>{versesObj.topic}</h6>
 
         {/* Scripture */}
         <p className="card-text bold">{versesObj.verse_text}</p>
@@ -62,7 +60,6 @@ function VerseCard({ versesObj, onUpdate }) {
 VerseCard.propTypes = {
   versesObj: PropTypes.shape({
     firebaseKey: PropTypes.string,
-    topic: PropTypes.string,
     scriptureRef: PropTypes.string,
     verse_text: PropTypes.string,
     uid: PropTypes.string,

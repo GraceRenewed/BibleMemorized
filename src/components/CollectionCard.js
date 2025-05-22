@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
@@ -8,27 +10,33 @@ import Card from 'react-bootstrap/Card';
 import { useAuth } from '@/utils/context/authContext';
 import { useRouter } from 'next/navigation';
 import _ from 'lodash';
-import { addCollection } from '../api/collectionData';
 
 function CollectionCard({ collectionsObj }) {
   const { user } = useAuth();
-
-  const [collectionDetails, setCollectionDetails] = useState();
+  // const [collectionDetails, setCollectionDetails] = useState();
   const router = useRouter();
 
-  useEffect(() => {
-    if (collectionsObj.firebaseKey) setCollectionDetails(collectionsObj);
-  }, [collectionsObj]);
+  // useEffect(() => {
+  //   if (collectionsObj.firebaseKey) setCollectionDetails(collectionsObj);
+  // }, [collectionsObj]);
 
+  // eslint-disable-next-line no-unused-vars
   const addThisCollection = () => {
+    const database = firebase.database();
+    const collectionsRef = database.ref('userCollections');
+
     const addedUserCollection = _.cloneDeep(collectionsObj);
-    addedUserCollection.firebaseKey = null;
+    delete addedUserCollection.firebaseKey;
 
-    const payload = { ...collectionDetails, uid: user.uid };
+    const newObj = collectionsRef.push();
+    const newKey = newObj.key;
+    console.log('Cloned data  with new key', newKey);
 
-    if (collectionsObj.firebaseKey) {
-      addCollection(payload).then(() => router.push(`/myCollections/`));
-    }
+    const payload = { ...addedUserCollection, firebaseKey: newKey, uid: user.uid };
+
+    newObj.set(payload).then(() => {
+      router.push(`/myCollections/`);
+    });
   };
 
   return (

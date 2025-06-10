@@ -13,12 +13,7 @@ import _ from 'lodash';
 
 function CollectionCard({ collectionsObj }) {
   const { user } = useAuth();
-  // const [collectionDetails, setCollectionDetails] = useState();
   const router = useRouter();
-
-  // useEffect(() => {
-  //   if (collectionsObj.firebaseKey) setCollectionDetails(collectionsObj);
-  // }, [collectionsObj]);
 
   // eslint-disable-next-line no-unused-vars
   const addThisCollection = () => {
@@ -26,7 +21,6 @@ function CollectionCard({ collectionsObj }) {
     const collectionsRef = database.ref('userCollections');
 
     const addedUserCollection = _.cloneDeep(collectionsObj);
-    delete addedUserCollection.firebaseKey;
 
     const newObj = collectionsRef.push();
     const newKey = newObj.key;

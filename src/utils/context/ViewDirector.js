@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { useAuth } from '@/utils/context/authContext';
-import Loading from '@/components/Loading';
-import SignIn from '@/components/SignIn';
-import NavBar from '@/components/NavBar';
+import { useAuth } from './authContext';
+import Loading from '../../components/Loading';
+import SignIn from '../../components/SignIn';
+import NavBar from '../../components/NavBar';
 
 function ViewDirectorBasedOnUserAuthStatus({ children }) {
   const { user, userLoading } = useAuth();

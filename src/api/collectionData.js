@@ -75,9 +75,9 @@ const getCollectionVerses = (firebaseKey) =>
       .catch(reject);
   });
 
-const getUserCollectionVerses = (firebaseKey) =>
+const getUserCollectionVerses = (collectionKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${firebaseKey}"`, {
+    fetch(`${endpoint}/verses.json?orderBy="collection_id"&equalTo="${collectionKey}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -15,22 +15,53 @@ function CollectionCard({ collectionsObj }) {
   const { user } = useAuth();
   const router = useRouter();
 
+  const database = firebase.database();
+  const collectionsRef = database.ref('userCollections');
+
   // eslint-disable-next-line no-unused-vars
   const addThisCollection = () => {
-    const database = firebase.database();
-    const collectionsRef = database.ref('userCollections');
-
     const addedUserCollection = _.cloneDeep(collectionsObj);
 
     const newObj = collectionsRef.push();
     const newKey = newObj.key;
-    console.log('Cloned data  with new key', newKey);
 
     const payload = { ...addedUserCollection, firebaseKey: newKey, uid: user.uid };
 
-    newObj.set(payload).then(() => {
-      router.push(`/myCollections/`);
+    return newObj.set(payload).then(() => {
+      console.log('Cloned data  with new key', newKey);
+      return newKey;
     });
+  };
+
+  const addCollectionVerses = (versesArray, newKey) => {
+    const versesRef = database.ref('userVerses');
+    const addedUserVerses = _.cloneDeep(versesArray);
+
+    const pushVerses = addedUserVerses.map((verse) => {
+      const newVerseObj = versesRef.push();
+      const newVerseKey = newVerseObj.key;
+
+      const payload = {
+        ...verse,
+        collections_id: newKey,
+        firebaseKey: newVerseKey,
+        uid: user.uid,
+        topic: verse.topic,
+        scriptureRef: verse.scriptureRef,
+        verse_text: verse.verse_text,
+        memorized: verse.memorized,
+      };
+      return newVerseObj.set(payload);
+    });
+    return Promise.all(pushVerses);
+  };
+
+  const handleAdd = () => {
+    addThisCollection()
+      .then((newKey) => addCollectionVerses(newKey))
+      .then(() => {
+        router.push(`/myCollections/`);
+      });
   };
 
   return (
@@ -44,7 +75,7 @@ function CollectionCard({ collectionsObj }) {
             View{' '}
           </Button>
         </Link>
-        <Button id="add" onClick={addThisCollection} className="m-2">
+        <Button id="add" onClick={handleAdd} className="m-2">
           Add
         </Button>
       </Card.Body>
@@ -58,7 +89,19 @@ CollectionCard.propTypes = {
     topic: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
+  versesObj: PropTypes.shape({
+    collection_id: PropTypes.string,
+    firebaseKey: PropTypes.string,
+    topic: PropTypes.string,
+    uid: PropTypes.string,
+    memorized: PropTypes.bool,
+    scriptureRef: PropTypes.string,
+    verse_text: PropTypes.string,
+  }).isRequired,
   collections: PropTypes.shape({
+    firebaseKey: PropTypes.string,
+  }),
+  verses: PropTypes.shape({
     firebaseKey: PropTypes.string,
   }),
 };

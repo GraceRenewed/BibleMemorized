@@ -1,53 +1,82 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import PropTypes from 'prop-types';
-// import { Button } from 'react-bootstrap';
-import VerseCard from '@/components/VerseCard';
-import getCollectionDetails from '@/api/mergedData';
-import { getCollectionVerses } from '@/api/collectionData';
 import { useAuth } from '@/utils/context/authContext';
-// *import { createMemorized }
+import VerseCard from '../../../../components/VerseCard';
+import { getCollectionDetails, getUserCollectionDetails } from '../../../../api/mergedData';
+import { getCollectionVerses, getUserCollectionVerses } from '../../../../api/collectionData';
 
-// React Component
 export default function ViewCollection({ params }) {
-  // Component State collDet holds details of state/setCollDet updates state, default empty object
-  const [collectionDetails, setCollectionDetails] = useState([{}]);
-  const [verses, setVerses] = useState([]);
-  const [filteredVerses, setFilteredVerses] = useState([]);
-  // extracts firebaseKey from the params object
-  const { firebaseKey } = params;
+  const resolvedParams = use(params);
+  const { firebaseKey } = resolvedParams;
   const { user } = useAuth();
 
-  const getCollectionView = () => {
-    getCollectionDetails(firebaseKey).then(setCollectionDetails);
-    getCollectionVerses(firebaseKey).then(setVerses);
-  };
+  const [collectionDetails, setCollectionDetails] = useState({});
+  const [verses, setVerses] = useState([]);
+  const [filteredVerses, setFilteredVerses] = useState([]);
 
-  // hook that provides user related information, extracts user from the object
+  // 🔄 Fetch collection and verse data
+  const getCollectionView = async () => {
+    try {
+      const [defaultCollection, userCollection] = await Promise.all([getCollectionDetails(firebaseKey), getUserCollectionDetails(firebaseKey)]);
+
+      const finalCollection = userCollection?.firebaseKey ? userCollection : defaultCollection;
+      setCollectionDetails(finalCollection);
+    } catch (error) {
+      console.error('Error loading collection:', error);
+    }
+
+    try {
+      const [defaultVerses, userVerses] = await Promise.all([getCollectionVerses(firebaseKey), getUserCollectionVerses(firebaseKey)]);
+
+      // Create a Map to store unique verses by firebaseKey
+      const uniqueVerses = new Map();
+
+      // Add default verses first
+      defaultVerses.forEach((verse) => {
+        uniqueVerses.set(verse.firebaseKey, verse);
+      });
+
+      // Add user verses, overwriting any duplicates
+      userVerses.forEach((verse) => {
+        uniqueVerses.set(verse.firebaseKey, verse);
+      });
+
+      // Convert Map values back to array
+      setVerses(Array.from(uniqueVerses.values()));
+    } catch (error) {
+      console.error('Error loading verses:', error);
+    }
+  };
+  // 🔁 On mount
   useEffect(() => {
     getCollectionView();
   }, []);
 
+  // 🔁 Filter verses when user or verses change
   useEffect(() => {
+    if (!user) return;
     const filtered = verses.filter((verse) => verse.uid === user.uid || verse.uid === '');
     setFilteredVerses(filtered);
-  }, [verses, user.uid]);
+  }, [verses, user]);
 
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="text-white ms-5 details">
         <h5>{collectionDetails.topic}</h5>
-        <h6>
+        <div>
           {filteredVerses.map((verse) => (
             <VerseCard key={verse.firebaseKey} versesObj={verse} onUpdate={getCollectionView} />
           ))}
-        </h6>
+        </div>
       </div>
     </div>
   );
 }
 
 ViewCollection.propTypes = {
-  params: PropTypes.objectOf({}).isRequired,
+  params: PropTypes.shape({
+    firebaseKey: PropTypes.string.isRequired,
+  }).isRequired,
 };

@@ -84,11 +84,6 @@ function CreateVerseForm({ versesObj = initialState }) {
         </Form.Select>
       </FloatingLabel>
 
-      {/* Topic input */}
-      <FloatingLabel controlId="floatingInput3" label="Topic" className="mb-3">
-        <Form.Control type="text" placeholder="Topic" name="topic" value={verseDetails.topic} onChange={handleVerseUpdate} required />
-      </FloatingLabel>
-
       {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
       <Form.Check
         className="text-white mb-3"
@@ -116,7 +111,6 @@ CreateVerseForm.propTypes = {
     verse_text: PropTypes.string,
     firebaseKey: PropTypes.string,
     collection_id: PropTypes.string,
-    topic: PropTypes.string,
     memorized: PropTypes.bool,
   }),
 };

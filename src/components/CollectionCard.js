@@ -33,17 +33,16 @@ function CollectionCard({ collectionsObj }) {
     });
   };
 
-  const addCollectionVerses = (versesArray, newKey) => {
-    const versesRef = database.ref('userVerses');
-    const addedUserVerses = _.cloneDeep(versesArray);
+  const addCollectionVerses = (newCollectionKey, versesArray = []) => {
+    const versesRef = firebase.database().ref('userVerses');
 
-    const pushVerses = addedUserVerses.map((verse) => {
-      const newVerseObj = versesRef.push();
-      const newVerseKey = newVerseObj.key;
+    const pushVerses = versesArray.map((verse) => {
+      const newVerseRef = versesRef.push();
+      const newVerseKey = newVerseRef.key;
 
       const payload = {
         ...verse,
-        collections_id: newKey,
+        collections_id: newCollectionKey,
         firebaseKey: newVerseKey,
         uid: user.uid,
         topic: verse.topic,
@@ -51,16 +50,35 @@ function CollectionCard({ collectionsObj }) {
         verse_text: verse.verse_text,
         memorized: verse.memorized,
       };
-      return newVerseObj.set(payload);
+      return newVerseRef.set(payload);
     });
     return Promise.all(pushVerses);
   };
 
+  const fetchVersesByCollection = (collectionKey) => {
+    const versesRef = firebase.database().ref('userVerses');
+
+    return versesRef
+      .orderByChild('collection_id')
+      .equalTo(collectionKey)
+      .once('value')
+      .then((snapshot) => {
+        const data = snapshot.val();
+        if (!data) return [];
+        return Object.values(data); // Each verse object
+      });
+  };
+
   const handleAdd = () => {
+    const originalCollectionKey = collectionsObj.firebaseKey;
+
     addThisCollection()
-      .then((newKey) => addCollectionVerses(newKey))
+      .then((newCollectionKey) => fetchVersesByCollection(originalCollectionKey).then((verses) => addCollectionVerses(newCollectionKey, verses)))
       .then(() => {
-        router.push(`/myCollections/`);
+        router.push('/myCollections/');
+      })
+      .catch((err) => {
+        console.error('Error adding collection and verses:', err);
       });
   };
 
